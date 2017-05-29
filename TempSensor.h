@@ -3,8 +3,10 @@
 class TempSensor
 {
 public:
+  TempSensor(int Pin);
   int GetTemperatureValue(void);
 private:
+  int TempSensorPin;
 
 };
 
