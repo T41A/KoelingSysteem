@@ -12,5 +12,5 @@ void CoolingElement::On(void)
 
 void Off(void)
 {
-  digitalWrite(elementPin, HIGH);
+  digitalWrite(elementPin, LOW);
 }
