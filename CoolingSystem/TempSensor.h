@@ -1,10 +1,12 @@
 #ifndef TEMPSENSOR_H
 #define TEMPSENSOR_H
+#include <arduino.h>
+
 class TempSensor
 {
 public:
   TempSensor(int Pin);
-  int GetTemperatureValue(void); // geeft een temperatuur in tienede van graden Celcius.
+  int GetTemperatureValue(void);
 private:
   int TempSensorPin;
 

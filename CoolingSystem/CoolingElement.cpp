@@ -3,6 +3,7 @@
 CoolingElement::CoolingElement(int pin)
 {
   elementPin = pin;
+  pinMode(elementPin, OUTPUT);
 }
 
 void CoolingElement::On(void)
@@ -10,7 +11,7 @@ void CoolingElement::On(void)
   digitalWrite(elementPin, HIGH);
 }
 
-void Off(void)
+void CoolingElement::Off(void)
 {
   digitalWrite(elementPin, LOW);
 }
