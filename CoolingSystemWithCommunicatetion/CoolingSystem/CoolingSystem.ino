@@ -6,8 +6,9 @@
 const int CoolingElementPin = 6; // Pin connected to the peltierelement
 const int TempSensorPin = A0; // Pin connected to the NTC
 
-int SetTemperature = 10; // Desired temprature in graden C
-double CurrentTemperature = 0;
+int8_t SetTemperature = -2; // Desired temprature in graden C
+int8_t CurrentTemperature = 0;
+CANMSG msg;
 
 CoolingElement Cooling(CoolingElementPin);
 TempSensor Temp(TempSensorPin);
@@ -21,6 +22,7 @@ void setup()
   {
     Serial.println("Setting up CAN failed");
   }
+  else{ Serial.println("Succes");}
   communication.SetCallback(GetMessage);
 }
 
@@ -28,7 +30,10 @@ void loop()
 {
 	communication.Read();
   CurrentTemperature = Temp.GetTemperatureValue();
-  if (CurrentTemperature <= SetTemperature)   
+  Serial.print(CurrentTemperature);
+  Serial.print("\t");
+  Serial.println(SetTemperature);
+  if (CurrentTemperature < SetTemperature)   
   {
     Cooling.Off();
   }  

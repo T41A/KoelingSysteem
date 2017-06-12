@@ -35,7 +35,7 @@ bool iCommunicate::Write(CANMSG msg) {
   msg2.data[5] = 0;
   msg2.data[6] = 0;
   msg2.data[7] = 0;
-  return iCommunicate::_can.transmitCANMessage(msg2, 1000);
+  return iCommunicate::_can.transmitCANMessage(msg, 1000);
 }
 
 void  iCommunicate::SetCallback(void (*callback)(CANMSG msg)) {
