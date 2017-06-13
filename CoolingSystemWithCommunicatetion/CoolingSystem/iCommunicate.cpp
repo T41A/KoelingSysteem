@@ -14,7 +14,7 @@ bool iCommunicate::Init() {
 }
 
 void iCommunicate::Read() {
-  int i = iCommunicate::_can.receiveCANMessage(&msg, 2000);
+  int i = iCommunicate::_can.receiveCANMessage(&msg, 1000);
   if (i && (msg.data[0] == 0x02)) {
     _callback(msg);
   }
